@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEOPORTAIL Casablanca</title>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.26/"></script> 
+    <link rel="stylesheet" href="assets/style1.css"/>
+    <script src="assets/main.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+
+</head>
+<body>
+   
+    <nav class="main-menu" id="ff">
+        <ul>
+            <br>
+            <li>
+                <a href="/">
+                    <i class="fa fa-home fa-2x"></i>
+                    <span class="nav-text">
+                       Accueil
+                    </span>
+                </a>
+              
+            </li><br>
+            <li>
+                <a href="/geoportail">
+                    <i class="fa fa-spinner fa-2x"></i>
+                    <span class="nav-text">
+                       Rafraîchir
+                    </span>
+                </a>
+              
+            </li><br>
+            <li class="has-subnav">
+                <a href="#" onclick="openCommune(1)">
+                    <i class="fa fa-square fa-2x"></i>
+                    <span class="nav-text">
+                        Communes
+                    </span>
+                </a>
+                <div id="1" style="display:none;">
+                    <select  class="list" id="communeSelect">
+                        <option value="">Sélectionner commmune selon</option>
+                        <option value="surfRenderer">Par surface</option>
+                        <option value="Comrenderer">Par commune</option>
+                        <option value="Prenderer">Par préfécture</option>
+                    </select>
+                  </div>
+            </li>
+            <br>
+            <li class="has-subnav">
+                <a href="#" onclick="openCommune(2)">
+                   <i class="fa fa-user fa-2x"></i>
+                    <span class="nav-text">
+                        Population
+                    </span>
+                </a>
+                <div id="2" style="display:none;">
+                    <select class="list"  id="populationSelect" >
+                        <option value="">Sélectionner population selon</option>
+                      <option value="popRenderer">Population 2004</option>
+                      <option value="popRenderer2">Population 1994</option>
+                      <option value="pierenderer">Diagramme circulaire (population)</option>
+                    </select>
+                </div>
+                
+            </li>
+            <br>
+            <li class="has-subnav">
+                <a href="#" onclick="openCommune(3)">
+                   <i class="fa fa-bed fa-2x"></i>
+                    <span class="nav-text">
+                        Hotels
+                    </span>
+                </a>
+                <div id="3" style="display:none;">
+                    <select class="list"  id="hotelSelect" >
+                        <option value="">--Choisir une catégorie--</option>
+                      <option value="CATÉGORIE = '1*'">1*</option>
+                      <option value="CATÉGORIE = '2*'">2*</option>
+                      <option value="CATÉGORIE = '3*'">3*</option>
+                      <option value="CATÉGORIE = '4*'">4*</option>
+                      <option value="CATÉGORIE = '5*'">5*</option>
+                      
+    
+                    </select>
+                </div>
+               
+            </li><br>
+            <li>
+                <a href="#" onclick="openCommune(4)">
+                    <i class="fa fa-building fa-2x"></i>
+                    <span class="nav-text">
+                        Grande surface
+                    </span>
+                </a>
+                <div id="4" style="display:none;">
+                    <select class="list"  id="GSSelect" >
+                        <option value="">--Choisir un type--</option>
+                      <option value="Type='Marjane'">Marjane</option>
+                      <option value="Type='Metro'">Metro</option>
+                      <option value="Type='Marina'">Marina</option>
+                      <option value="Type='Acima'">Acima</option>
+                      <option value="Type='Twin Center'">Twin Center</option>
+                      <option value="Type='LABEL VIE'">LABEL VIE</option>
+                      <option value="Type='Grande Surface Spécialisée'">Grande Surface Spécialisée</option>
+                    </select>
+                </div>
+            </li><br>
+            <li>
+                <a href="#" id="affihceEdit">
+                    <i class="fa fa-exclamation fa-2x"></i>
+                    <span class="nav-text">
+                       Réclamation
+                    </span>
+                </a>
+
+              </li>
+       
+        </ul>
+
+   
+    </nav>
+    <div id="viewDiv"></div>
+    <div id="editter"></div>
+    <div id="basemapGalleryDiv"></div>
+    <button id="toggleButton"><i class="fa fa-layer-group"></i></button>
+    <div id="topbar">
+        <button
+          class="action-button esri-icon-measure-line"
+          id="distanceButton"
+          type="button"
+          title="Measure distance between two or more points"
+        ></button>
+        <button class="action-button esri-icon-measure-area" id="areaButton" type="button" title="Measure area"></button>
+        
+      </div>
+    <script>
+       function openCommune(id) {
+  var listeContainer = document.getElementById(id);
+  if (listeContainer.style.display === "none") {
+    listeContainer.style.display = "block";
+  } else {
+    listeContainer.style.display = "none";
+  }
+}
+    </script>
+</body>
+</html>

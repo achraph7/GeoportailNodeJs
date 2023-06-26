@@ -1,0 +1,10 @@
+var collection = dataset.mean().clip(Morocco)
+Export.image.toDrive({
+
+image: collection,
+
+description: ‘Temperature’,
+
+region: Morocco
+
+»

@@ -1,0 +1,36 @@
+>
+4
+5 var dataset = ee.ImageCollection('MODIS/061/MOD11A2")
+
+6 .filter(ee.Filter.date('2022-04-01', '2022-08-01'));
+7 var landSurfaceTemperature = dataset.select("LST Day 1km');
+
+8- var landSurfaceTemperatureVis = {
+
+9
+
+e
+
+min: 14000.0,
+
+1 max: 16000.0,
+
+11- _ palette: [
+
+12 ____'@40274', '@40281', '@502a3', '@502b8', '@502ce', '@502e6',
+13 ___‘@6@2ff', '235cb1', '307ef3', '269db1', '3@c8e2', '32d3ef',
+14 ____'3be285', '3ff38f', '86e26f', '3ae237', 'b5e22e', 'd6e21f',
+15 ____'fff705', 'ffd611', 'ffb613', 'ff8b13', 'ff6e08', "ff500d'
+16 __ 'ffoeeo', 'de@101', 'c21301', 'a71001', '911003"
+
+17 1,
+
+18H
+
+19 Map.setCenter(6.746, 46.529, 2);
+
+20 Map.addLayer(
+
+21 landSurfaceTemperature, landSurfaceTemperatureVis,
+22 "Land Surface Temperature');
+
